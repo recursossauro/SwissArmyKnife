@@ -1,0 +1,122 @@
+@font-face {
+  font-family: comic;
+  src: url('../fonts/comic-sans-ms-4.ttf');
+}
+
+body {
+ /*background-attachment: fixed;*/
+ background-color: black;
+ color: green;
+ font-family: comic;
+}
+
+body a {
+ color: #690500;
+}
+
+.jumbotron {
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  background-color: black;
+  color: #008800;
+  text-shadow: 2px 2px 1px #000000, -2px -2px 1px #000000;
+}
+
+nav {
+ background-color: #002000;
+ color: #f0e3c6;
+}
+
+nav a {
+   color: #56a3a6;
+}
+
+header {
+ background-color: #002000;
+ color: #a78314;
+}
+
+header h1, h2, h3 {
+ text-align: center;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.little_img {
+    max-width: 50%;
+    max-height: 200px;
+}
+
+.little_word_image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.micro_img {
+  float: left;
+  max-width: 30px;
+  max-height: 50px;
+}
+
+.avatar_img {
+  display: block;
+  max-width: 50%;
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.galery {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 225px;
+  width: 914px;
+  max-width: 100%;
+  align-content: center;
+}
+
+.panel {
+  width:225px;
+  height: 400px;
+  display: inline-grid;
+  text-align: center;
+  border: solid 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3px;
+}
+
+.img_panel {
+  max-width: 95%;
+  max-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.line {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: gray;
+}
+
+/*
+Cores
+ #f0e3c6 Bege clarinho
+ #2b2414 Marrom escuro
+ #a78314 Mostarda;
+ #2e0f15 Sienna Escuro
+ #690500 Sienna
+ #57737a Chumbo
+
+ #56a3a6 Azul pscina fosco;
+*/
