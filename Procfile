@@ -1,1 +1,1 @@
-web: gunicorn Games.wsgi --log-file -
+web: gunicorn swissarmyknife.wsgi --log-file -
