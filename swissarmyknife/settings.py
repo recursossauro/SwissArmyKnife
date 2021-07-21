@@ -26,7 +26,7 @@ SECRET_KEY = '47=d2z&t-_#68%_!yglo&c3!c_)8*6g4=1t#1=a-ur628m4b+$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['swissknife.herokuapp.com']
 
 
 # Application definition
