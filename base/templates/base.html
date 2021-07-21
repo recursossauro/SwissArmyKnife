@@ -6,17 +6,11 @@
  <title>{% block title %}Swiss Army Knife{% endblock %} </title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
  <link rel="stylesheet" href="{% static 'style/style.css' %}" />
 
@@ -28,46 +22,52 @@
  <h2>All in one place</h2>
 </div>
 
-<nav class="navbar navbar-expand-sm">
- <a class="navbar-brand" href="{% url 'index' %}">Home</a>
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-   <span class="navbar-toggler-icon"></span>
- </button>
- <div class="collapse navbar-collapse" id="collapsibleNavbar">
-<!--
-   <ul class="navbar-nav">
-     <li class="nav-item">
-       <a class="nav-link" href="#">Opção 1</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="#">Link</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="#">Link</a>
-     </li>
-   </ul>
- -->
-   <div class="nav-item">
-      {% if user.is_authenticated %}
-        <span class="nav-brand glyphicon glyphicon-log-in">{{user}}</span>
-    </div>
-    <div class="">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{% url 'vocabulary:index' %}" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vocabulary
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'vocabulary:index' %}">Vocabulary Home</a></li>
+            <li><a class="dropdown-item" href="{% url 'vocabulary:new' %}">New Word</a></li>
+            <li><a class="dropdown-item" href="{% url 'vocabulary:vocabularylist' %}">Vocabulary List</a></li>
+
+          </ul>
         </li>
       </ul>
+      <div class="nav-item">
+         {% if user.is_authenticated %}
+           <span class="nav-brand glyphicon glyphicon-log-in">{{user}}</span>
+       </div>
+       <div class="">
+         <ul class="navbar-nav">
+           <li class="nav-item">
+             <a class="nav-link" href="{% url 'index' %}">Home</a>
+           </li>
+         </ul>
+       </div>
+       <div class="nav-item">
+           <a id="logout" class="nav-link" href="{% url 'access:logout' %}">logout</a>
+         {% else %}
+           <a id="login" class="nav-link" href="{% url 'access:login' %}">login</a>
+       </div>
+       <div class="nav-item">
+           <a id="novousuario" class="nav-link" href="">New user</a>
+         {% endif %}
+       </div>
     </div>
-    <div class="nav-item">
-        <a id="logout" class="nav-link" href="{% url 'access:logout' %}">logout</a>
-      {% else %}
-        <a id="login" class="nav-link" href="{% url 'access:login' %}">login</a>
-    </div>
-    <div class="nav-item">
-        <a id="novousuario" class="nav-link" href="">New user</a>
-      {% endif %}
-    </div>
- </div>
+
+  </div>
+
+
 </nav>
 
 <div class="container margin-top" style="margin-top:30px">
@@ -77,6 +77,9 @@
 </div>
 
 <footer></footer>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

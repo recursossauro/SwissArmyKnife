@@ -17,10 +17,21 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('access/',include(('access.urls','access'),namespace='access')),
+    path('vocabulary/', include(('vocabulary.urls','vocabulary'), namespace='vocabulary')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+else:
+    urlpatterns += staticfiles_urlpatterns()

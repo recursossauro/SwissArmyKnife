@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block title %}Vocabulary | {{block.super}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'style/vocabulary_style.css' %}" />
+
+  <header>
+    <h1>Vocabulary</h1>
+  </header>
+  <section>
+    {% block session %}
+     Native: {{default.native_language}}, Target: {{default.target_language}}
+    {% endblock %}
+  </section>
+  <main>
+    {% block vocabulary %}
+    {% endblock %}
+  </main>
+{% endblock %}

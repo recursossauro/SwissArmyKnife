@@ -1,0 +1,49 @@
+{% extends 'vocabulary/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Managing | {{block.super}}{% endblock %}
+
+{% block vocabulary %}
+
+  <div class="d-grid gap-2">
+    <hr>
+    <a class="btn btn-outline-success" type="button" href="{% url 'vocabulary:newimage' %}">New Image</a>
+    <hr>
+  </div>
+
+  {% for item in object_list %}
+    <div class="row">
+      <div class="col-5">
+        <a href=""><img src="{{ item.image.url }}" alt="{{item.image.url}}" class="img_panel"></a>
+      </div>
+      <div class="col-7">
+        <table>
+          {% for imageWord in item.ImageTargetWords %}
+            <tr>
+              <td><a href="{% url 'vocabulary:update' imageWord.word.pk%}">{{imageWord.word}}</a></td>
+              <td><a href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
+            </tr>
+          {% endfor %}
+          <tr>
+            <td><a href="{% url 'vocabulary:new' item.pk 'target' %}">+</a></td>
+          </tr>
+          {% for imageWord in item.ImageNativeWords %}
+            <tr>
+              <td><a href="{% url 'vocabulary:update' imageWord.word.pk%}">{{imageWord.word}}</a></td>
+              <td><a href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
+            </tr>
+          {% endfor %}
+          <tr>
+            <td><a href="{% url 'vocabulary:new' item.pk 'native' %}">+</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <hr>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
