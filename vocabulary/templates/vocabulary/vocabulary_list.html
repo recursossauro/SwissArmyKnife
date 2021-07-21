@@ -22,20 +22,20 @@
           {% for imageWord in item.ImageTargetWords %}
             <tr>
               <td><a href="{% url 'vocabulary:update' imageWord.word.pk%}">{{imageWord.word}}</a></td>
-              <td><a href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
+              <td style="float: right;"><a class="btn btn-outline-success" href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
             </tr>
           {% endfor %}
           <tr>
-            <td><a href="{% url 'vocabulary:new' item.pk 'target' %}">+</a></td>
+            <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'target' %}">new word in {{default.target_language}}</a></td>
           </tr>
           {% for imageWord in item.ImageNativeWords %}
             <tr>
               <td><a href="{% url 'vocabulary:update' imageWord.word.pk%}">{{imageWord.word}}</a></td>
-              <td><a href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
+              <td style="float: right;"><a class="btn btn-outline-success" href="{% url 'vocabulary:delete' imageWord.word.pk%}">-</a></td>
             </tr>
           {% endfor %}
           <tr>
-            <td><a href="{% url 'vocabulary:new' item.pk 'native' %}">+</a></td>
+            <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'native' %}">new word in {{default.target_language}}</a></td>
           </tr>
         </table>
       </div>
