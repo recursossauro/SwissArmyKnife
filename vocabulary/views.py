@@ -169,6 +169,17 @@ class ImageCreateView(LoginRequiredMixin, CreateView, VocabularyBase):
 
         return self.setDefaultContext(self.request, super(self.__class__, self).get_context_data(**kwargs))
 
+class ImageUpdateView(LoginRequiredMixin, UpdateView, VocabularyBase):
+
+    template_name = 'vocabulary/new.html'
+    model         = Image
+    fields        = ['image']
+    success_url   = reverse_lazy('vocabulary:vocabularylist')
+
+    def get_context_data(self, **kwargs):
+
+        return self.setDefaultContext(self.request, super(self.__class__, self).get_context_data(**kwargs))
+
 class VocabularyListView(LoginRequiredMixin, ListView, VocabularyBase):
 
     template_name = 'vocabulary/vocabulary_list.html'
@@ -177,6 +188,23 @@ class VocabularyListView(LoginRequiredMixin, ListView, VocabularyBase):
 
         self.loadBase(self.request)
         queryset = Image.objects.filter(user = self.request.user)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+
+        context = self.setDefaultContext(self.request, super(self.__class__, self).get_context_data(**kwargs))
+
+        return context
+
+class WordListView(LoginRequiredMixin, ListView, VocabularyBase):
+
+    template_name = 'vocabulary/word_list.html'
+
+    def get_queryset(self):
+
+        self.loadBase(self.request)
+        queryset = self.targetWords
 
         return queryset
 

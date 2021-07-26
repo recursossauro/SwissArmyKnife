@@ -139,6 +139,7 @@ STATIC_URL = '/static/'
 
 # AUTH
 
+
 LOGIN_URL = 'access:login'
 LOGIN_REDIRECT_URL = 'index'
 

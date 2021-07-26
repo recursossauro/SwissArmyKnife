@@ -1,0 +1,26 @@
+{% extends 'vocabulary/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Managing | {{block.super}}{% endblock %}
+
+{% block vocabulary %}
+
+  {% for item in object_list %}
+    <div class="row">
+      <div class="col-6">
+        <a href="">{{item}}</a>
+      </div>
+      <div class="col-6">
+        {% for word in item.translations %}
+          <a href="">{{word.word}}</a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <hr>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
