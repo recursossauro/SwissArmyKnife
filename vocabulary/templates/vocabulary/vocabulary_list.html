@@ -15,7 +15,7 @@
   {% for item in object_list %}
     <div class="row">
       <div class="col-5">
-        <a href="{% url 'vocabulary:updateimage' item.pk %}"><img src="{{ item.image.url }}" alt="{{item.image.url}}" class="img_panel"></a>
+        <a href="{% url 'vocabulary:updateimage' item.pk %}"><img src="{{ item.get_image_url }}" alt="{{ item.get_image_url }}" class="img_panel"></a>
       </div>
       <div class="col-7">
         <table>

@@ -45,6 +45,12 @@ class Image (models.Model):
         verbose_name        = 'Image'
         verbose_name_plural = 'Images'
 
+    def get_image_url(self):
+        try:
+            return self.image.url
+        except ValueError:
+            return ""
+
     def ImageWords(self):
 
         imageWords = ImageWord.objects.filter(user=self.user, image=self).order_by('-word__language')

@@ -40,7 +40,7 @@
   </main>
   <aside class="defaultwidth">
     {% if image %}
-      <img class="img" src="{{image.image.url}}" alt="{{image}}">
+      <img class="img" src="{{image.get_image_url}}" alt="{{image}}">
     {% endif %}
   </aside>
 </div>
