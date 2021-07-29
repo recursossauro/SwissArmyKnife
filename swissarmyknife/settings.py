@@ -153,3 +153,4 @@ django_heroku.settings(locals())
 
 # Django storage Dropbox
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '7LZUd6s7yisAAAAAAAAAAR8WZkPUqhceQFE72FmgEPCuz9BYjaz-KBuK42vpyb1y'
