@@ -107,6 +107,8 @@ class Word(models.Model):
     user      = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Usuário', on_delete=models.CASCADE)
     language  = models.ForeignKey(Language, verbose_name='Language', on_delete=models.CASCADE, blank=True, null=True)
     word      = models.CharField('Word', max_length=200)
+    article   = models.CharField('Article', max_length=10, blank=True, null=True)
+    sentence  = models.CharField('Sentence', max_length=1000, blank=True, null=True)
 
     # Fields to backup control
     created = models.DateTimeField('Created', auto_now_add=True)
