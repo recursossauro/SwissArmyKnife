@@ -150,3 +150,6 @@ MEDIA_URL = '/media/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+# Django storage Dropbox
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
