@@ -56,7 +56,7 @@ class Image (models.Model):
             return ""
         except ApiError as e:
             traceback.print_exc()
-            return None
+            return "/static/images/generic-avatar.png"
 
     def ImageWords(self):
 
