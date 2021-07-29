@@ -8,6 +8,9 @@ from django.views.generic import TemplateView, CreateView, UpdateView, ListView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 
+from dropbox.exceptions import ApiError
+import traceback
+
 
 from .models import Word, Language, Default, Image, ImageWord
 
@@ -171,6 +174,22 @@ class ImageUpdateView(LoginRequiredMixin, UpdateView, VocabularyBase):
     model         = Image
     fields        = ['image']
     success_url   = reverse_lazy('vocabulary:vocabularylist')
+
+    def get_object(self):
+
+        image = get_object_or_404(Image, user=self.request.user, pk = self.kwargs['pk'])
+        if (image.image != None):
+            try:
+                image.image.url
+            except ApiError as e:
+                traceback.print_exc()
+                image.image = None
+            except ValueError as e:
+                # Prevent master.image == None
+                pass
+
+        return image
+
 
     def get_context_data(self, **kwargs):
 
