@@ -33,7 +33,9 @@ class Default(models.Model):
     def __str__(self):
         return 'Target: ' + str(self.target_language) + ' | Native: ' + str(self.native_language)
 
+# Image shoud be Meaning
 class Image (models.Model):
+    
     user   = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Usuário', on_delete=models.CASCADE)
     image  = models.ImageField('Image', upload_to='images/', max_length=500, null=True, blank=True)
 

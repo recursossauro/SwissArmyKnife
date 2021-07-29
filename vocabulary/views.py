@@ -20,8 +20,6 @@ class VocabularyBase():
             self.nativeWords = Word.objects.filter(user = self.request.user, language = self.default.native_language)
             self.targetWords = Word.objects.filter(user = self.request.user, language = self.default.target_language)
 
-
-
     def setDefaultContext(self, request, context):
 
 
@@ -36,8 +34,6 @@ class VocabularyBase():
 class IndexTemplateView(LoginRequiredMixin, TemplateView, VocabularyBase):
 
     template_name = 'vocabulary/index.html'
-
-
 
     def get_context_data(self, **kwargs):
 
