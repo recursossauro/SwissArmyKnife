@@ -46,7 +46,7 @@ class WordCreateView(LoginRequiredMixin, CreateView, VocabularyBase):
 
     template_name = 'vocabulary/new.html'
     model         = Word
-    fields        = ['language', 'word']
+    fields        = ['language', 'word', 'article', 'sentence']
     success_url   = reverse_lazy('vocabulary:vocabularylist')
 
 
@@ -74,7 +74,7 @@ class WordWordImageCreateView(LoginRequiredMixin, CreateView, VocabularyBase):
 
     template_name = 'vocabulary/new.html'
     model         = Word
-    fields        = ['word']
+    fields        = ['word', 'article','sentence']
     success_url   = reverse_lazy('vocabulary:vocabularylist')
 
 
