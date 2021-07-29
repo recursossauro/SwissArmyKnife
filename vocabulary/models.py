@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from dropbox.exceptions import ApiError
+import traceback
 from django.contrib.auth import get_user_model
 
 class Language (models.Model):
@@ -35,7 +37,7 @@ class Default(models.Model):
 
 # Image shoud be Meaning
 class Image (models.Model):
-    
+
     user   = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Usuário', on_delete=models.CASCADE)
     image  = models.ImageField('Image', upload_to='images/', max_length=500, null=True, blank=True)
 
@@ -52,6 +54,9 @@ class Image (models.Model):
             return self.image.url
         except ValueError:
             return ""
+        except ApiError as e:
+            traceback.print_exc()
+            return None
 
     def ImageWords(self):
 
