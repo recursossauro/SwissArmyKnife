@@ -50,13 +50,17 @@ class Image (models.Model):
         verbose_name_plural = 'Images'
 
     def get_image_url(self):
+        generic_image_url = "/static/images/generic-avatar.png"
         try:
-            return self.image.url
+            if (self.image.url!=None):
+                return self.image.url
+            else:
+                return generic_image_url
         except ValueError:
-            return ""
+            return generic_image_url
         except ApiError as e:
             traceback.print_exc()
-            return "/static/images/generic-avatar.png"
+            return generic_image_url
 
     def ImageWords(self):
 
