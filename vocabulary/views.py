@@ -117,7 +117,7 @@ class WordUpdateView(LoginRequiredMixin, UpdateView, VocabularyBase):
 
     template_name = 'vocabulary/new.html'
     model         = Word
-    fields        = ['language', 'word']
+    fields        = ['language', 'word', 'article', 'sentence']
     success_url   = reverse_lazy('vocabulary:vocabularylist')
 
     def form_valid(self, form):
