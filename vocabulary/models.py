@@ -57,8 +57,12 @@ class Image (models.Model):
             else:
                 return generic_image_url
         except ValueError:
+            traceback.print_exc()
             return generic_image_url
         except ApiError as e:
+            traceback.print_exc()
+            return generic_image_url
+        except OSError:
             traceback.print_exc()
             return generic_image_url
 
