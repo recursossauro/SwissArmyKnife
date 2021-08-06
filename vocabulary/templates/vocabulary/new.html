@@ -1,8 +1,14 @@
 {% extends 'vocabulary/base.html' %}
 
+{% load static %}
+
 {% load widget_tweaks %}
 
 {% block title %}Managing | {{block.super}}{% endblock %}
+
+{% block head %}
+  <script src="{% static 'scripts/forms.js' %}"></script>
+{% endblock %}
 
 {% block vocabulary %}
 <div class="defaultwidth">
@@ -40,8 +46,14 @@
   </main>
   <aside class="defaultwidth">
     {% if image %}
-      <img class="img" src="{{image.get_image_url}}" alt="{{image}}">
+      <img id="id_show_image" class="img" src="{{image.get_image_url}}" alt="{{image}}">
+    {% else %}
+      <img id="id_show_image" class="img" src="{% static 'images/generic-avatar.png' %}" alt="{{image}}">
     {% endif %}
   </aside>
 </div>
+
+<script type="text/javascript">
+  showPhoto();
+</script>
 {% endblock %}
