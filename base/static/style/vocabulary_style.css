@@ -19,3 +19,39 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.grid_image {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+@media (min-width: 768px) {
+  .grid_image {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+  }
+}
+
+.words {
+  flex: 2;
+  padding: 5px;
+}
+
+.meaning {
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vocabulary_list {
+  display: block;
+  width: 70%;
+  width-min: 150px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
