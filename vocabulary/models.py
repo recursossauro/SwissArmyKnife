@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 
 class Language (models.Model):
     name = models.CharField('name', max_length=500, unique = True)
+    nick = models.SlugField('nickname', max_length = 5, unique = True, null=True, blank=True)
 
     # Fields to backup control
     created = models.DateTimeField('Created', auto_now_add=True, null=True)
@@ -14,6 +15,7 @@ class Language (models.Model):
     class Meta:
         verbose_name        = 'Language'
         verbose_name_plural = 'Languages'
+        ordering            = ['name']
 
     def __str__(self):
         return self.name

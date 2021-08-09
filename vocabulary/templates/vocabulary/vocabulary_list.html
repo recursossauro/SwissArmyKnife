@@ -21,7 +21,7 @@
             <table>
               {% for imageWord in item.ImageTargetWords %}
                 <tr>
-                  <td><a href="{% url 'vocabulary:update' imageWord.word.pk %}">{{imageWord.word}}</a></td>
+                  <td><a href="{% url 'vocabulary:update' imageWord.word.pk %}">{{imageWord.word}}</a>|<a href="https://translate.google.com/?sl=de&tl=pt&text={{imageWord.word}}&op=translate">GT</a></td>
                   <td style="float: right;"><a class="btn btn-outline-success" href="{% url 'vocabulary:delete' imageWord.word.pk%}">del</a></td>
                 </tr>
               {% endfor %}
