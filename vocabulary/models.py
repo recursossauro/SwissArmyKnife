@@ -54,7 +54,7 @@ class Image (models.Model):
     def get_image_url(self):
         generic_image_url = "/static/images/generic-avatar.png"
         try:
-            if (self.image.url!=None):
+            if (self.image !=None and self.image.url!=None):
                 return self.image.url
             else:
                 return generic_image_url
