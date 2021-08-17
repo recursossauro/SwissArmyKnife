@@ -1,5 +1,7 @@
 {% extends 'vocabulary/base.html' %}
 
+{% load static %}
+
 {% load widget_tweaks %}
 
 {% block title %}Managing | {{block.super}}{% endblock %}
@@ -21,12 +23,20 @@
             <table>
               {% for imageWord in item.ImageTargetWords %}
                 <tr>
-                  <td><a href="{% url 'vocabulary:update' imageWord.word.pk %}">{{imageWord.word}}</a></td>
-                  <td style="float: right;"><a class="btn btn-outline-success" href="{% url 'vocabulary:delete' imageWord.word.pk%}">del</a></td>
+                  <td>
+                    <a href="{% url 'vocabulary:update' imageWord.word.pk %}">{{imageWord.word}}</a>
+                    <a href="https://translate.google.com/?sl={{default.target_language.nick}}&tl={{default.native_language.nick}}&text={{imageWord.word}}&op=translate">
+                      <img src="{% static 'images/google_translate_icon.png' %}" alt="Google Translate" class="icon">
+                    </a>
+                    
+                  </td>
+                  <td style="float: right;">
+                    <a class="btn btn-outline-success" href="{% url 'vocabulary:delete' imageWord.word.pk%}">del</a>
+                  </td>
                 </tr>
               {% endfor %}
               <tr>
-                <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'target' %}">new word in {{default.target_language}}</a></td>
+                <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'target' %}"><img src="{% static 'images/add-file-blue.png' %}" alt='new word in ' class='icon'>{{default.target_language}}</a></td>
               </tr>
               {% for imageWord in item.ImageNativeWords %}
                 <tr>
@@ -35,7 +45,7 @@
                 </tr>
               {% endfor %}
               <tr>
-                <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'native' %}">new word in {{default.native_language}}</a></td>
+                <td colspan="2"><a class="btn btn-outline-success" href="{% url 'vocabulary:new' item.pk 'native' %}"><img src="{% static 'images/add-file-blue.png' %}" alt='new word in ' class='icon'>{{default.native_language}}</a></td>
               </tr>
             </table>
           </div>
