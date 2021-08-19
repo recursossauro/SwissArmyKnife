@@ -4,7 +4,7 @@ from django.db import IntegrityError
 from django.db import transaction
 
 from django.views.generic.base import View
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DeleteView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 
@@ -222,6 +222,17 @@ class WordListView(LoginRequiredMixin, ListView, VocabularyBase):
         queryset = self.targetWords
 
         return queryset
+
+    def get_context_data(self, **kwargs):
+
+        context = self.setDefaultContext(self.request, super(self.__class__, self).get_context_data(**kwargs))
+
+        return context
+
+class WordCardDatailView(LoginRequiredMixin, DetailView, VocabularyBase):
+
+    template_name = 'vocabulary/word_card.html'
+    model = Word
 
     def get_context_data(self, **kwargs):
 

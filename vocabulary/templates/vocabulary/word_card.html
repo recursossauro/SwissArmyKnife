@@ -1,0 +1,22 @@
+{% extends 'vocabulary/base.html' %}
+
+{% load static %}
+
+{% block title %}Managing | {{block.super}}{% endblock %}
+
+{% block vocabulary %}
+  <main>
+    <h1>{{object.word}}</h1>
+    {%if object.article is not None %}<p>Article: {{object.article}}</p> {%endif%}
+    <p>{{object.sentence|default_if_none:""}}</p>
+    <p>{{object.language}}</p>
+  </main>
+  <section>
+    {% for thisimageword in object.imageword_set.all %}
+      {% for allimagewords in thisimageword.image.imageword_set.all %}
+       {% if allimagewords.word.pk != object.pk %}<p>{{allimagewords.word}}</p>{%endif%}
+      {%endfor%}
+      <img src="{{thisimageword.image.get_image_url}}" alt="" class='img'>
+    {% endfor %}
+  </section>
+{% endblock %}

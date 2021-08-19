@@ -14,6 +14,7 @@ from .views import (
     ImageCreateView,
     ImageUpdateView,
     WordListView,
+    WordCardDatailView,
 )
 
 
@@ -29,6 +30,7 @@ urlpatterns = [
 
     path('vocabularylist', VocabularyListView.as_view(),name='vocabularylist'),
     path('wordlist', WordListView.as_view(),name='wordlist'),
+    path('<int:pk>/wordcard', WordCardDatailView.as_view(),name='wordcard'),
     #path('newvocabulary', VocabularyCreateView.as_view(),name='newvocabulary'),
 
 
