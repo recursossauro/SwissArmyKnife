@@ -1,2 +1,10 @@
-1. access - login 
+
 2. APP - Productivity - Haking your time.
+
+5. Create app Haking yorself
+
+Did
+1. access - login
+3. Vabulary - create a link to WordCardDatailView
+4. change vocabulary Word.translations(self) to get targetword wen the word was on native
+language and get words in native language wen the word was in target language.

@@ -130,8 +130,9 @@ class Word(models.Model):
         unique_together = ['user', 'word', 'language']
 
     def translations(self):
-        default = Default.objects.get(user=self.user)
-        imagesWords       = ImageWord.objects.filter(user = self.user, word=self)
+        default        = Default.objects.get(user=self.user)
+        imagesWords    = ImageWord.objects.filter(user = self.user, word=self)
+
         allImagesWords = ImageWord.objects.filter(
             user = self.user,
             image__in=models.Subquery(imagesWords.values('image'))
@@ -145,8 +146,10 @@ class Word(models.Model):
         if (default.target_language==None):
             return queryBase.exclude(language = self.language)
         else:
-            return queryBase.filter(language=default.native_language)
+            if (self.language != default.target_language):
+                return queryBase.filter(language=default.target_language)
 
+            return queryBase.filter(language=default.native_language)
 
     def __str__(self):
         return self.word
