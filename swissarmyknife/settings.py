@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'base',
     'access',
     'vocabulary',
-    'selftracking',
+    'passtrack',
+    'gtd',
 ]
 
 MIDDLEWARE = [
