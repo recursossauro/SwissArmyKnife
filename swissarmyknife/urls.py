@@ -28,6 +28,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('access/',include(('access.urls','access'),namespace='access')),
     path('vocabulary/', include(('vocabulary.urls','vocabulary'), namespace='vocabulary')),
+    path('passtrack/', include(('passtrack.urls','passtrack'), namespace='passtrack')),
 ]
 
 if settings.DEBUG:
