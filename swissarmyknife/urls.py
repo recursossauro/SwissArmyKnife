@@ -29,6 +29,7 @@ urlpatterns = [
     path('access/',include(('access.urls','access'),namespace='access')),
     path('vocabulary/', include(('vocabulary.urls','vocabulary'), namespace='vocabulary')),
     path('passtrack/', include(('passtrack.urls','passtrack'), namespace='passtrack')),
+    path('gtd/', include(('gtd.urls','gtd'), namespace='gtd')),
 ]
 
 if settings.DEBUG:
