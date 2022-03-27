@@ -1,0 +1,18 @@
+{% extends 'gtd/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}GTD | {{block.super}}{% endblock %}
+
+{% block session %}
+{% endblock %}
+
+{% block gtd %}
+  <nav styel>
+    <a href="{% url 'gtd:index' %}">Home</a>
+    <a href="#">nova</a>
+  </nav>
+  <article class="">
+
+  </article>
+{% endblock %}

@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Input_item
+
+admin.site.register(Input_item)

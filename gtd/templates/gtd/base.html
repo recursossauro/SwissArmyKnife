@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block head %}{% endblock %}
+
+{% block title %}Vocabulary | {{block.super}}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'style/vocabulary_style.css' %}" />
+
+  <header>
+    <h1>GTD - Getting Things Done</h1>
+  </header>
+  <section>
+    {% block session %}
+    {% endblock %}
+  </section>
+  <main>
+    {% block gtd %}
+    {% endblock %}
+  </main>
+{% endblock %}

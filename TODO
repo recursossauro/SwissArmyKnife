@@ -1,11 +1,13 @@
-
 2. APP - Productivity - Haking your time.
-
 5. Create app Haking yorself
-6. Create app passtrack
+8. Create Input_item model.
+9. Create Create Input item.
+
 
 Did
 1. access - login
 3. Vabulary - create a link to WordCardDatailView
 4. change vocabulary Word.translations(self) to get targetword wen the word was on native
 language and get words in native language wen the word was in target language.
+6. Create app passtrack
+7. Create app gtk

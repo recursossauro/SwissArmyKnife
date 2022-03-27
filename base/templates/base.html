@@ -43,10 +43,13 @@
 
           </ul>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'passtrack:index' %}">Passtrack</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'gtd:index' %}">GTD</a>
+        </li>
       </ul>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'passtrack:index' %}">Passtrack</a>
-      </li>
       <div class="nav-item">
          {% if user.is_authenticated %}
            <span class="nav-brand glyphicon glyphicon-log-in">{{user}}</span>
