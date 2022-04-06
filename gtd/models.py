@@ -19,3 +19,7 @@ class Input_item(models.Model):
         verbose_name        = 'Input_item'
         verbose_name_plural = 'Input_items'
         ordering            = ['date']
+
+    def __str__(self):
+
+        return str(self.date) + ' - ' + self.description

@@ -1,7 +1,7 @@
 2. APP - Productivity - Haking your time.
 5. Create app Haking yorself
-8. Create Input_item model.
-9. Create Create Input item.
+10. List imput_items
+
 
 
 Did
@@ -11,3 +11,5 @@ Did
 language and get words in native language wen the word was in target language.
 6. Create app passtrack
 7. Create app gtk
+8. Create Input_item model.
+9. Create Create Input item.

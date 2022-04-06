@@ -24,3 +24,9 @@ class InputItemCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
 
         return super(InputItemCreateView, self).form_valid(form)
+
+class InputItemListView(LoginRequiredMixin, ListView):
+
+    template_name = 'gtd/list_input_item.html'
+    model = Input_item
+    context_object_name = 'input_item_list'

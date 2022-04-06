@@ -1,0 +1,55 @@
+{% extends 'gtd/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}GTD | {{block.super}}{% endblock %}
+
+{% block session %}
+{% endblock %}
+
+{% block gtd %}
+  <header class="page-header">
+      <h2>List Input BOX</h2>
+  </header>
+  <main>
+    <div class="row">
+      <div class="col-2">
+        Date
+      </div>
+      <div class="col-8">
+        Description
+      </div>
+      <div class="col-2">
+        Options
+      </div>
+    </div>
+    {% for item in input_item_list %}
+      <div class="row">
+        <div class="col-12">
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <a href="">{{item.date}}</a>
+        </div>
+        <div class="col-8">
+          {{item.description}}
+        </div>
+        <div class="col-2">
+          <ul>
+            <li><a href="#">Tasc</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Inactivate</a></li>
+            <li><a href="#">Delete</a></li>
+          </ul>
+        </div>
+        <div class="col-6">
+          {% for word in item.translations %}
+            <a href="">{{word.word}}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  {% endblock %}
+  </main>
