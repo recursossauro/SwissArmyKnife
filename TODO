@@ -1,6 +1,7 @@
 2. APP - Productivity - Haking your time.
 5. Create app Haking yorself
-10. List imput_items
+
+
 
 
 
@@ -13,3 +14,5 @@ language and get words in native language wen the word was in target language.
 7. Create app gtk
 8. Create Input_item model.
 9. Create Create Input item.
+10. List imput_items.
+11. Correct ListInputItem problem.
