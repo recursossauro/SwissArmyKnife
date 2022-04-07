@@ -16,3 +16,6 @@ language and get words in native language wen the word was in target language.
 9. Create Create Input item.
 10. List imput_items.
 11. Correct ListInputItem problem.
+12. Turn link's colors most lightening
+13. Eliminate time from date on list_input_item.html
+14. list_input_item.html date format 'd-m-y'
